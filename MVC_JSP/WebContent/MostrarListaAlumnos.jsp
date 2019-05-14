@@ -37,11 +37,8 @@
 %>
 	<tr>
 		<td>
-		<a href="Controlador?action=displaycustomer&id=<%=legajo%>"><%=legajo%></a>
+		<a href="Controlador?action=displayalumno&id=<%=legajo%>"><%=legajo%></a>
 		</td>
-
- 
-		<!--<td><%=aux.getLegajo()%></td>  -->
 		<td><%=aux.getNombre()%></td>
 	</tr>
 <% } %>

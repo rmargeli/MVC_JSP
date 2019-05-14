@@ -8,6 +8,7 @@
 </head>
 <body>
 	<a href="Controlador?action=displaylist" target="_self">Lista de Alumnos</a>
+	<a href="Controlador?action=displayprof" target="_self">Lista de Profesores</a>
 	<a href="Controlador?action=displaysubjects" target="_self">Lista de Materias</a>
 	<a href="Controlador?action=displaycourses" target="_self">Lista de Cursos</a>  
 </body>

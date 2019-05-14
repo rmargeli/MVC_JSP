@@ -13,6 +13,7 @@ import controlador.ControladorInscripciones;
 import view.AlumnoView;
 import view.CursoView;
 import view.MateriaView;
+import view.ProfesorView;
 
 public class Controlador extends HttpServlet {
 
@@ -36,7 +37,7 @@ public class Controlador extends HttpServlet {
             {
             	List<AlumnoView> alumnos = ControladorInscripciones.getInstancia().getAlumnos();
                 request.setAttribute("alumnos", alumnos);
-                jspPage = "/MostrarLista.jsp";
+                jspPage = "/MostrarListaAlumnos.jsp";
             }
             else if ("displaycourses".equals(action))
             {
@@ -50,13 +51,24 @@ public class Controlador extends HttpServlet {
                 request.setAttribute("materias", materias);
                 jspPage = "/MostrarListaMaterias.jsp";
             }
+            else if ("displayprof".equals(action))
+            {
+            	List<ProfesorView> profesores = ControladorInscripciones.getInstancia().getProfesores();
+                request.setAttribute("profesores", profesores);
+                jspPage = "/MostrarListaProfesores.jsp";
+            }
             else if ("displayalumno".equals(action))
             {
-//                String legajo = request.getParameter("legajo");
-//                AlumnoView alumno = ControladorInscripciones.getInstancia().buscarAlumno(legajo);
-//                request.setAttribute("alumno", cliente);
-//
-//                jspPage = "/MostrarCliente.jsp";
+                int legajo = Integer.parseInt(request.getParameter("id"));
+                List<AlumnoView> alumnos = ControladorInscripciones.getInstancia().getAlumnos();
+                for(AlumnoView a : alumnos) {
+                	if (a.getLegajo() == legajo) {                		
+                		request.setAttribute("alumno", a);
+                		jspPage = "/MostrarAlumno.jsp";
+                		break;
+                	}
+                }
+                jspPage = "/MostrarAlumno.jsp";
             }
 //            else if ("editcustomer".equals(action))
 //            {
